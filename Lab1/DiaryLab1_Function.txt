@@ -1,0 +1,9 @@
+diary on
+Lab1_Function(pi, 3.14);
+ abs error: 
+     1.5927e-003
+ relative error: 
+   506.9574e-006
+ relative error %: 
+    50.6957e-003
+diary off

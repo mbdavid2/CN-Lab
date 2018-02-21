@@ -1,0 +1,252 @@
+diary on
+function1(2)
+
+ans =
+
+     8
+
+matrix1(2,1)
+
+ans =
+
+     3
+
+matrix1 = [matrix1; 3 4]
+
+matrix1 =
+
+     1     2
+     3     4
+     5     6
+     3     4
+
+matrix1 = [matrix1; 9 8]
+
+matrix1 =
+
+     1     2
+     3     4
+     5     6
+     3     4
+     9     8
+
+vector=0:10
+
+vector =
+
+     0     1     2     3     4     5     6     7     8     9    10
+
+vector(2)
+
+ans =
+
+     1
+
+vector2=0:2:10
+
+vector2 =
+
+     0     2     4     6     8    10
+
+Lab1
+vector
+
+vector =
+
+  Columns 1 through 18
+
+     1     6    11    16    21    26    31    36    41    46    51    56    61    66    71    76    81    86
+
+  Columns 19 through 20
+
+    91    96
+
+Lab1
+vector3
+
+vector3 =
+
+  Columns 1 through 11
+
+   10.0000   14.7368   19.4737   24.2105   28.9474   33.6842   38.4211   43.1579   47.8947   52.6316   57.3684
+
+  Columns 12 through 20
+
+   62.1053   66.8421   71.5789   76.3158   81.0526   85.7895   90.5263   95.2632  100.0000
+
+matrix1(1:2,:)
+
+ans =
+
+     1     2
+     3     4
+
+matrix1
+
+matrix1 =
+
+     1     2
+     3     4
+     5     6
+
+Lab1
+a
+
+a =
+
+     1     1     1
+     1     1     1
+     1     1     1
+
+b
+
+b =
+
+     0     0
+     0     0
+
+c
+
+c =
+
+     1     1     1     1     1     1
+     1     1     1     1     1     1
+     1     1     1     1     1     1
+     1     1     1     1     1     1
+     1     1     1     1     1     1
+     1     1     1     1     1     1
+
+v
+{Undefined function or variable 'v'.
+} 
+Lab1
+v
+
+v =
+
+     0     2     4     6     8    10
+
+diagMat
+
+diagMat =
+
+     0     0     0     0     0     0
+     0     2     0     0     0     0
+     0     0     4     0     0     0
+     0     0     0     6     0     0
+     0     0     0     0     8     0
+     0     0     0     0     0    10
+
+matrix1(2,:)
+
+ans =
+
+     3     4
+
+matrix1(2,:) = [1 98]
+
+matrix1 =
+
+     1     2
+     1    98
+     5     6
+
+det(a)
+
+ans =
+
+     0
+
+rank(c)
+
+ans =
+
+     1
+
+size(c)
+
+ans =
+
+     6     6
+
+help magic
+ <strong>magic</strong>  Magic square.
+    <strong>magic</strong>(N) is an N-by-N matrix constructed from the integers
+    1 through N^2 with equal row, column, and diagonal sums.
+    Produces valid magic squares for all N > 0 except N = 2.
+
+    <a href="matlab:doc magic">Reference page for magic</a>
+
+diary off
+clear list1
+clear all
+%clears all variables from the workspace
+clear command window
+help clear
+ <strong>clear</strong>  Clear variables and functions from memory.
+    <strong>clear</strong> removes all variables from the workspace.
+    <strong>clear</strong> VARIABLES does the same thing.
+    <strong>clear</strong> GLOBAL removes all global variables.
+    <strong>clear</strong> FUNCTIONS removes all compiled MATLAB and MEX-functions.
+    Calling <strong>clear</strong> FUNCTIONS decreases code performance and is usually unnecessary.
+    For more information, see the clear Reference page.
+ 
+    <strong>clear</strong> ALL removes all variables, globals, functions and MEX links.
+    <strong>clear</strong> ALL at the command prompt also clears the base import list.
+    Calling <strong>clear</strong> ALL decreases code performance and is usually unnecessary.
+    For more information, see the clear Reference page.
+ 
+    <strong>clear</strong> IMPORT clears the base import list.  It can only be issued at the 
+    command prompt. It cannot be used in a function or a script.
+ 
+    <strong>clear</strong> CLASSES is the same as <strong>clear</strong> ALL except that class definitions
+    are also cleared. If any objects exist outside the workspace (say in 
+    userdata or persistent in a locked program file) a warning will be
+    issued and the class definition will not be cleared.
+    Calling <strong>clear</strong> CLASSES decreases code performance and is usually unnecessary.
+    If you modify a class definition, MATLAB automatically updates it.
+    For more information, see the <strong>clear</strong> Reference page.
+ 
+    <strong>clear</strong> JAVA is the same as <strong>clear</strong> ALL except that java classes on the
+    dynamic java path (defined using JAVACLASSPATH) are also cleared. 
+ 
+    <strong>clear</strong> VAR1 VAR2 ... clears the variables specified. The wildcard
+    character '*' can be used to clear variables that match a pattern. For
+    instance, <strong>clear</strong> X* clears all the variables in the current workspace
+    that start with X.
+ 
+    <strong>clear</strong> -REGEXP PAT1 PAT2 can be used to match all patterns using regular
+    expressions. This option only clears variables. For more information on
+    using regular expressions, type "doc regexp" at the command prompt.
+ 
+    If X is global, <strong>clear</strong> X removes X from the current workspace, but
+    leaves it accessible to any functions declaring it global. 
+    <strong>clear</strong> GLOBAL -REGEXP PAT removes global variables that match regular
+    expression patterns.
+    Note that to clear specific global variables, the GLOBAL option must
+    come first. Otherwise, all global variables will be cleared.
+ 
+    <strong>clear</strong> FUN clears the function specified. If FUN has been locked by
+    MLOCK it will remain in memory. If FUN is a script or function that 
+    is currently executing, then it is not cleared. Use a partial path 
+    (see PARTIALPATH) to distinguish between different overloaded versions 
+    of FUN.  For instance, 'clear inline/display' clears only the INLINE 
+    method for DISPLAY, leaving any other implementations in memory.
+ 
+    Examples for pattern matching:
+        clear a*                % Clear variables starting with "a"
+        clear -regexp ^b\d{3}$  % Clear variables starting with "b" and
+                                %    followed by 3 digits
+        clear -regexp \d        % Clear variables containing any digits
+ 
+    See also <a href="matlab:help clearvars">clearvars</a>, <a href="matlab:help who">who</a>, <a href="matlab:help whos">whos</a>, <a href="matlab:help mlock">mlock</a>, <a href="matlab:help munlock">munlock</a>, <a href="matlab:help persistent">persistent</a>, <a href="matlab:help import">import</a>.
+
+    <a href="matlab:doc clear">Reference page for clear</a>
+
+1/7
+
+ans =
+
+    0.1429
+
+diary off
