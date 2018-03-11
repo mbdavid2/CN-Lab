@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Plot examples</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-02-21"><meta name="DC.source" content="Lab1_Examples_Plot3.m"><style type="text/css">
+      --><title>sum_exp</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-03-07"><meta name="DC.source" content="sum_exp.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,29 +66,79 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Plot examples</h1><!--introduction--><!--/introduction--><p>Two plots in the same window</p><pre class="codeinput"><span class="comment">%rand(10000,1) is a vector of 100000 rands, (1 -&gt; 1 row), if we put</span>
-<span class="comment">%rand(10000) then it's a NxN matrix</span>
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">With while</a></li></ul></div><pre class="codeinput"><span class="comment">% function [ suma,era,k ] = sum_exp(x,n,tol)</span>
+<span class="comment">% % Ex 9 (2. Algorithms)</span>
+<span class="comment">% % Partial sum of the exponential series</span>
+<span class="comment">% % x: data</span>
+<span class="comment">% % n: data</span>
+<span class="comment">% % output: sum(x,n)</span>
+<span class="comment">%     suma = 1;</span>
+<span class="comment">%     aux = 1;</span>
+<span class="comment">%     for k=1:n</span>
+<span class="comment">%         aux = aux*x/k;</span>
+<span class="comment">%         suma = suma + aux;</span>
+<span class="comment">%         era=abs(exp(x)-suma);</span>
+<span class="comment">%         if era &lt; tol</span>
+<span class="comment">%             return</span>
+<span class="comment">%         end</span>
+<span class="comment">%     end</span>
+<span class="comment">%     disp('iterations: '), disp(k)</span>
+<span class="comment">%     disp('error: '), disp(era)</span>
+<span class="comment">% end</span>
+</pre><h2 id="2">With while</h2><pre class="codeinput"><span class="keyword">function</span> [ suma ] = sum_exp(x,n,tol)
+    suma = 1;
+    aux = 1;
+    k = 1;
+    era = 1;
+    <span class="keyword">while</span> (k&lt;n &amp;&amp; era &gt; tol)
+        aux = aux*x/k;
+        suma = suma + aux;
+        era=abs(exp(x)-suma);
+    <span class="keyword">end</span>
+    disp(<span class="string">'iterations: '</span>), disp(k)
+    disp(<span class="string">'error: '</span>), disp(era)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput error">Not enough input arguments.
 
-<span class="comment">%subplots(number) to put the different plots in the same window</span>
-
-RU = rand(10000,1);
-RN = randn(10000,1);
-subplot(211), hist(RU, 50), title(<span class="string">'Uniform'</span>);
-subplot(212), hist(RN, 100); title(<span class="string">'Normal'</span>)
-</pre><img vspace="5" hspace="5" src="Lab1_Examples_Plot3_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
+Error in sum_exp (line 28)
+    while (k&lt;n &amp;&amp; era &gt; tol)
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%% Plot examples
-%%
-% Two plots in the same window
-%rand(10000,1) is a vector of 100000 rands, (1 -> 1 row), if we put
-%rand(10000) then it's a NxN matrix
+% function [ suma,era,k ] = sum_exp(x,n,tol)
+% % Ex 9 (2. Algorithms)
+% % Partial sum of the exponential series
+% % x: data
+% % n: data
+% % output: sum(x,n)
+%     suma = 1;
+%     aux = 1;
+%     for k=1:n
+%         aux = aux*x/k;
+%         suma = suma + aux;
+%         era=abs(exp(x)-suma);
+%         if era < tol
+%             return
+%         end
+%     end
+%     disp('iterations: '), disp(k)
+%     disp('error: '), disp(era)
+% end
+    
 
-%subplots(number) to put the different plots in the same window
-
-RU = rand(10000,1); 
-RN = randn(10000,1);
-subplot(211), hist(RU, 50), title('Uniform');
-subplot(212), hist(RN, 100); title('Normal')
+%% With while       
+function [ suma ] = sum_exp(x,n,tol)
+    suma = 1;
+    aux = 1;
+    k = 1;
+    era = 1;
+    while (k<n && era > tol)
+        aux = aux*x/k;
+        suma = suma + aux;
+        era=abs(exp(x)-suma);
+    end
+    disp('iterations: '), disp(k)
+    disp('error: '), disp(era)
+end
 
 ##### SOURCE END #####
 --></body></html>

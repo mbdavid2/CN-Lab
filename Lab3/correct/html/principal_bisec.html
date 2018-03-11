@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Plot examples</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-02-21"><meta name="DC.source" content="Lab1_Examples_Plot3.m"><style type="text/css">
+      --><title>Dijous 8 de mar&ccedil; - Principal Regula Falsi</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-03-11"><meta name="DC.source" content="principal_bisec.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,29 +66,46 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Plot examples</h1><!--introduction--><!--/introduction--><p>Two plots in the same window</p><pre class="codeinput"><span class="comment">%rand(10000,1) is a vector of 100000 rands, (1 -&gt; 1 row), if we put</span>
-<span class="comment">%rand(10000) then it's a NxN matrix</span>
+  </style></head><body><div class="content"><h1>Dijous 8 de mar&ccedil; - Principal Regula Falsi</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Gr&agrave;fica</a></li><li><a href="#2">Iteracions</a></li></ul></div><h2>Gr&agrave;fica<a name="1"></a></h2><pre class="codeinput">f=@(x)x.^6-x-1;
+t=1:0.05:1.4;
+plot(t,t.^6,t,t+1),grid,title(<span class="string">'equaci&oacute;'</span>)
+</pre><img vspace="5" hspace="5" src="principal_bisec_01.png" alt=""> <h2>Iteracions<a name="2"></a></h2><pre class="codeinput">a=1; b=1.2; tol=0.005;
+aux=f(a)*f(b);
+<span class="keyword">if</span> aux &lt;0
+    root = new_bisec(f,a,b,tol,5)
+<span class="keyword">else</span>
+    disp(<span class="string">'No es verifica Thma de Bolzano'</span>)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">            iter      a     x     b      f(x)      |b-a|
 
-<span class="comment">%subplots(number) to put the different plots in the same window</span>
+taula =
 
-RU = rand(10000,1);
-RN = randn(10000,1);
-subplot(211), hist(RU, 50), title(<span class="string">'Uniform'</span>);
-subplot(212), hist(RN, 100); title(<span class="string">'Normal'</span>)
-</pre><img vspace="5" hspace="5" src="Lab1_Examples_Plot3_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
+            0            1          1.1          1.2     -0.32844          0.2
+            1          1.1         1.15          1.2      0.16306          0.1
+            2          1.1        1.125         1.15    -0.097713         0.05
+            3        1.125       1.1375         1.15     0.028749        0.025
+            4        1.125       1.1313       1.1375    -0.035442       0.0125
+
+
+root =
+
+    1.1313
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%% Plot examples
-%%
-% Two plots in the same window
-%rand(10000,1) is a vector of 100000 rands, (1 -> 1 row), if we put
-%rand(10000) then it's a NxN matrix
-
-%subplots(number) to put the different plots in the same window
-
-RU = rand(10000,1); 
-RN = randn(10000,1);
-subplot(211), hist(RU, 50), title('Uniform');
-subplot(212), hist(RN, 100); title('Normal')
-
+%% Dijous 8 de març - Principal Regula Falsi
+%
+%% Gràfica
+f=@(x)x.^6-x-1;
+t=1:0.05:1.4;
+plot(t,t.^6,t,t+1),grid,title('equació')
+%% Iteracions
+a=1; b=1.2; tol=0.005;
+aux=f(a)*f(b);
+if aux <0
+    root = new_bisec(f,a,b,tol,5)
+else
+    disp('No es verifica Thma de Bolzano')
+end
 ##### SOURCE END #####
 --></body></html>

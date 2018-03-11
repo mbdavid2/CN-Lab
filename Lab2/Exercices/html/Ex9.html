@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Plot examples</title><meta name="generator" content="MATLAB 8.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-02-21"><meta name="DC.source" content="Lab1_Examples_Plot3.m"><style type="text/css">
+      --><title>Ex 9 (2. Algorithms)</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-03-07"><meta name="DC.source" content="Ex9.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,29 +66,20 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Plot examples</h1><!--introduction--><!--/introduction--><p>Two plots in the same window</p><pre class="codeinput"><span class="comment">%rand(10000,1) is a vector of 100000 rands, (1 -&gt; 1 row), if we put</span>
-<span class="comment">%rand(10000) then it's a NxN matrix</span>
+  </style></head><body><div class="content"><h1>Ex 9 (2. Algorithms)</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Partial sum of the exponential series</a></li></ul></div><h2 id="1">Partial sum of the exponential series</h2><p>x: data n: data output: sum(x,n)</p><pre class="codeinput"><span class="keyword">function</span> [ output_args ] = sum_exp(x,n)
 
-<span class="comment">%subplots(number) to put the different plots in the same window</span>
-
-RU = rand(10000,1);
-RN = randn(10000,1);
-subplot(211), hist(RU, 50), title(<span class="string">'Uniform'</span>);
-subplot(212), hist(RN, 100); title(<span class="string">'Normal'</span>)
-</pre><img vspace="5" hspace="5" src="Lab1_Examples_Plot3_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014a</a><br></p></div><!--
+<span class="keyword">end</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%% Plot examples
-%%
-% Two plots in the same window
-%rand(10000,1) is a vector of 100000 rands, (1 -> 1 row), if we put
-%rand(10000) then it's a NxN matrix
+%% Ex 9 (2. Algorithms)
+%% Partial sum of the exponential series
+% x: data
+% n: data
+% output: sum(x,n)
 
-%subplots(number) to put the different plots in the same window
+function [ output_args ] = sum_exp(x,n)
 
-RU = rand(10000,1); 
-RN = randn(10000,1);
-subplot(211), hist(RU, 50), title('Uniform');
-subplot(212), hist(RN, 100); title('Normal')
+end
 
 ##### SOURCE END #####
 --></body></html>
