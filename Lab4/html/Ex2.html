@@ -1,0 +1,204 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Ex 2, Full_lab4.pdf</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-03-14"><meta name="DC.source" content="Ex2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Ex 2, Full_lab4.pdf</h1><!--introduction--><p>Iterative methods: fixed point</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Equation</a></li><li><a href="#2">Plot</a></li><li><a href="#3">Fzero Matlab</a></li><li><a href="#4">LOCALITZACIO: b) Feu 3 o m&eacute;s iteracions del m&egrave;tode de bisecci&oacute; fins que l &lt; 1/4</a></li><li><a href="#5">Iterative method #1</a></li><li><a href="#6">Iterative method #2</a></li><li><a href="#7">Estudi converg&egrave;ncia</a></li></ul></div><h2 id="1">Equation</h2><pre class="codeinput">f = @(x)x.^6-x-1;
+</pre><h2 id="2">Plot</h2><pre class="codeinput">t = 1:0.01:1.4; <span class="comment">% With this range we can see where the 0 will be</span>
+<span class="comment">%0:0.1:2;</span>
+plot(t, f(t)), grid, title(<span class="string">'Equation'</span>);
+</pre><img vspace="5" hspace="5" src="Ex2_01.png" alt=""> <h2 id="3">Fzero Matlab</h2><pre class="codeinput">alpha = fzero(f,1)
+</pre><pre class="codeoutput">
+alpha =
+
+    1.1347
+
+</pre><h2 id="4">LOCALITZACIO: b) Feu 3 o m&eacute;s iteracions del m&egrave;tode de bisecci&oacute; fins que l &lt; 1/4</h2><pre class="codeinput">a = 1; b = 1.4; c = a+(b-a)/2; valorF = [f(a),f(c),f(b)], l = (c-a)
+</pre><pre class="codeoutput">
+valorF =
+
+   -1.0000    0.7860    5.1295
+
+
+l =
+
+    0.2000
+
+</pre><h2 id="5">Iterative method #1</h2><pre class="codeinput">g1 = @(x)x.^6-1;
+dg1 = @(x)6*x.^5;
+x0 = c;
+tol = 0.0005;
+N = 10;
+<span class="comment">%We need to see if it's divergent or convergent. If df(x0) &lt; 1 convergent,</span>
+<span class="comment">%divergent otherwise</span>
+<span class="keyword">if</span> (abs(dg1(x0)) &lt; 1)
+    [ root, x_sol ] = new_fixPoint(f,g1,x0,tol,N)
+    tolf = f(x_sol)
+<span class="keyword">else</span>
+    disp(<span class="string">'Divergent!'</span>)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Divergent!
+</pre><h2 id="6">Iterative method #2</h2><pre class="codeinput">g2 = @(x)(x+1).^(1/6); <span class="comment">% diferent f</span>
+dg2 = @(x) 1./(x+1).^(5/6)/6;
+x0 = c;
+tol = 0.0005;
+N = 10;
+
+<span class="keyword">if</span> (abs(dg2(x0)) &lt; 1)
+    [ root, x_sol ] = new_fixPoint(f,g2,x0,tol,N)
+    tolf = f(x_sol)
+<span class="keyword">else</span>
+    disp(<span class="string">'Divergent!'</span>)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+root =
+
+    1.1348
+
+
+x_sol =
+
+    1.2000    1.1404    1.1352    1.1348
+
+
+tolf =
+
+    0.7860    0.0596    0.0052    0.0005
+
+</pre><h2 id="7">Estudi converg&egrave;ncia</h2><pre class="codeinput">y=ones(size(t)); <span class="comment">%Simplement dos linies a 1, per veure allo del if de si esta dins</span>
+plot(t,f(t),t,dg1(t),t,dg2(t),alpha, 0, <span class="string">'rs'</span>, alpha, dg1(alpha),<span class="string">'rs'</span>,t,y,<span class="string">'c'</span>,t,-y,<span class="string">'c'</span>,<span class="string">'LineWidth'</span>,1), grid, title(<span class="string">'x.^6-1'</span>)
+<span class="comment">% best per no entrar en conflicte amb el dibuix</span>
+legend(<span class="string">'equaci&oacute;'</span>, <span class="string">'m&egrave;tode 1'</span>,<span class="string">'m&egrave;tode 2'</span>,<span class="string">'Location'</span>, <span class="string">'best'</span>)
+
+<span class="comment">% Podem veure clarament que la primera esta fora i per tant es divergent</span>
+<span class="comment">% i l'altre no, es convergent i el metode funcion</span>
+</pre><img vspace="5" hspace="5" src="Ex2_02.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Ex 2, Full_lab4.pdf
+% Iterative methods: fixed point
+
+%% Equation
+
+f = @(x)x.^6-x-1;
+
+%% Plot
+
+t = 1:0.01:1.4; % With this range we can see where the 0 will be
+%0:0.1:2;
+plot(t, f(t)), grid, title('Equation');
+
+%% Fzero Matlab
+
+alpha = fzero(f,1)
+
+%% LOCALITZACIO: b) Feu 3 o més iteracions del mètode de bisecció fins que l < 1/4
+
+a = 1; b = 1.4; c = a+(b-a)/2; valorF = [f(a),f(c),f(b)], l = (c-a)
+
+%% Iterative method #1
+
+g1 = @(x)x.^6-1;
+dg1 = @(x)6*x.^5;
+x0 = c;
+tol = 0.0005;
+N = 10;
+%We need to see if it's divergent or convergent. If df(x0) < 1 convergent,
+%divergent otherwise
+if (abs(dg1(x0)) < 1)
+    [ root, x_sol ] = new_fixPoint(f,g1,x0,tol,N)
+    tolf = f(x_sol)
+else 
+    disp('Divergent!')
+end
+
+%% Iterative method #2
+
+g2 = @(x)(x+1).^(1/6); % diferent f
+dg2 = @(x) 1./(x+1).^(5/6)/6;
+x0 = c;
+tol = 0.0005;
+N = 10;
+
+if (abs(dg2(x0)) < 1)
+    [ root, x_sol ] = new_fixPoint(f,g2,x0,tol,N)
+    tolf = f(x_sol)
+else 
+    disp('Divergent!')
+end
+
+%% Estudi convergència
+
+y=ones(size(t)); %Simplement dos linies a 1, per veure allo del if de si esta dins
+plot(t,f(t),t,dg1(t),t,dg2(t),alpha, 0, 'rs', alpha, dg1(alpha),'rs',t,y,'c',t,-y,'c','LineWidth',1), grid, title('x.^6-1')
+% best per no entrar en conflicte amb el dibuix
+legend('equació', 'mètode 1','mètode 2','Location', 'best')
+
+% Podem veure clarament que la primera esta fora i per tant es divergent
+% i l'altre no, es convergent i el metode funcion
+
+
+##### SOURCE END #####
+--></body></html>
