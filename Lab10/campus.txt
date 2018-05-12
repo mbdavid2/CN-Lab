@@ -1,0 +1,39 @@
+Entrega de l'activitat a l'aula d'avui 24.3.2017. 
+
+======================================
+
+Interpolació de Vandermonde del llibre MOLER
+
+V = vander(x)
+
+c = V\y'
+
+======================================
+
+Interpolació de Lagrange del llibre MOLER
+
+function v = polyinterp(x,y,u)
+n = length(x);
+v = zeros(size(u));
+for k = 1:n
+w = ones(size(u));
+for j = [1:k-1 k+1:n]
+w = (u-x(j))./(x(k)-x(j)).*w;
+end
+v = v + w*y(k);
+end
+
+=====================================
+
+Taula diferències dividides (M. Àngela Grau)
+
+ a=zeros(n);
+ a(1:n,1)=y';
+ for j=1:n-1
+   for i=1:n-j
+     a(i,j+1)=(a(i+1,j)-a(i,j))/(x(i+j)-x(i));
+   end
+ end
+ taula=[x',a]
+
+=====================================
