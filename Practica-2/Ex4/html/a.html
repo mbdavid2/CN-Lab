@@ -1,0 +1,247 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>a</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-05-15"><meta name="DC.source" content="a.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Aproximaci&oacute; dades</a></li><li><a href="#2">Dades</a></li><li><a href="#3">Espanya</a></li><li><a href="#4">Belice</a></li><li><a href="#5">Resultats junts</a></li></ul></div><h2>Aproximaci&oacute; dades<a name="1"></a></h2><pre class="codeinput">clear, clc, clf;
+</pre><img vspace="5" hspace="5" src="a_01.png" alt=""> <h2>Dades<a name="2"></a></h2><pre class="codeinput">x = 0:7;
+y1 = [73.3 75.3 76.2 76.8 78.0 79.0 80.2 81.6];
+y2 = [67.7 69.6 71.1 69.6 68.4 69.0 69.8 70.3];
+plot(x,y1,<span class="string">'--'</span>,x,y2,<span class="string">'-'</span>), title(<span class="string">'Esperan&ccedil;a de vida'</span>)
+legend(<span class="string">'Espanya'</span>,<span class="string">'Belice'</span>, <span class="string">'location'</span>, <span class="string">'best'</span>)
+</pre><img vspace="5" hspace="5" src="a_02.png" alt=""> <h2>Espanya<a name="3"></a></h2><p>*Polinomi interpolador *</p><pre class="codeinput">n = length(x);
+p = polyfit(x,y1,n-1);
+coefs = p';
+
+<span class="comment">% Gr&agrave;fic polinomi</span>
+t = 0:0.1:7;
+v = polyval(coefs,t);
+plot(x,y1,<span class="string">'*'</span>,t,v), title(<span class="string">'Nodes Espanya'</span>)
+legend(<span class="string">'nodes'</span>,<span class="string">'polinomi'</span>,<span class="string">'location'</span>,<span class="string">'best'</span>)
+
+<span class="comment">%1970</span>
+<span class="comment">% per sortir "fora" es necessari t = -2:0.1:9;</span>
+<span class="comment">% En aquest cas 1970</span>
+<span class="comment">% v(11);</span>
+<span class="comment">% err = 72.0 - v(11);</span>
+<span class="comment">% abs(err);</span>
+<span class="comment">%</span>
+<span class="comment">% %2007 (2005 es 81)</span>
+<span class="comment">% v(81 + 2 + 2);</span>
+<span class="comment">% err = 80.9 - v(81 + 2 + 2);</span>
+<span class="comment">% abs(err);</span>
+<span class="comment">%</span>
+<span class="comment">% %1992 (1990 es 51)</span>
+<span class="comment">% v(51 + 4);</span>
+<span class="comment">% err = 77.4 - v(51 + 4);</span>
+<span class="comment">% abs(err);</span>
+</pre><img vspace="5" hspace="5" src="a_03.png" alt=""> <h2>Belice<a name="4"></a></h2><p>*Polinomi interpolador *</p><pre class="codeinput">n = length(x);
+p = polyfit(x,y2,n-1);
+coefs = p';
+
+<span class="comment">% Gr&agrave;fic polinomi</span>
+t = 0:0.1:7;
+v = polyval(coefs,t);
+plot(x,y2,<span class="string">'*'</span>,t,v), title(<span class="string">'Nodes Belice'</span>)
+legend(<span class="string">'nodes'</span>,<span class="string">'polinomi'</span>,<span class="string">'location'</span>,<span class="string">'best'</span>)
+
+<span class="comment">%1970</span>
+<span class="comment">% per sortir "fora" es necessari t = -2:0.1:9;</span>
+<span class="comment">% En aquest cas 1970</span>
+<span class="comment">% v(11);</span>
+<span class="comment">% err = 65.5 - v(11);</span>
+<span class="comment">% abs(err);</span>
+<span class="comment">% %2007 (2005 es 81)</span>
+<span class="comment">% v(81 + 2 + 2);</span>
+<span class="comment">% err = 69.5 - v(81 + 2 + 2);</span>
+<span class="comment">% abs(err);</span>
+<span class="comment">%</span>
+<span class="comment">% %1992 (1990 es 51)</span>
+<span class="comment">% v(51 + 4);</span>
+<span class="comment">% err = 70.7 - v(51 + 4);</span>
+<span class="comment">% abs(err)</span>
+</pre><img vspace="5" hspace="5" src="a_04.png" alt=""> <h2>Resultats junts<a name="5"></a></h2><pre class="codeinput">clf,
+t = 0:0.1:7;
+
+<span class="comment">% Esp</span>
+n = length(x);
+p1 = polyfit(x,y1,n-1);
+coefs1 = p1';
+v1 = polyval(coefs1,t);
+
+<span class="comment">% Belice</span>
+n = length(x);
+p2 = polyfit(x,y2,n-1);
+coefs2 = p2';
+v2 = polyval(coefs2,t);
+
+txt1 = <span class="string">'Espanya nodes'</span>;
+txt2 = <span class="string">'Belice nodes'</span>;
+txt3 = <span class="string">'Espanya polinomi'</span>;
+txt4 = <span class="string">'Belice polinomi'</span>;
+hold <span class="string">all</span>;
+plot(x,y1,<span class="string">'Marker'</span>,<span class="string">'o'</span>,<span class="string">'Color'</span>,<span class="string">'r'</span>,<span class="string">'LineStyle'</span>,<span class="string">'none'</span>,<span class="string">'DisplayName'</span>, txt1)
+plot(x,y2,<span class="string">'Marker'</span>,<span class="string">'o'</span>,<span class="string">'Color'</span>,<span class="string">'k'</span>,<span class="string">'LineStyle'</span>,<span class="string">'none'</span>,<span class="string">'DisplayName'</span>, txt2)
+plot(t,v1,<span class="string">'Color'</span>,<span class="string">'b'</span>,<span class="string">'DisplayName'</span>, txt3),
+plot(t,v2,<span class="string">'Color'</span>,<span class="string">'g'</span>,<span class="string">'DisplayName'</span>, txt4)
+legend(<span class="string">'show'</span>,<span class="string">'location'</span>,<span class="string">'best'</span>)
+</pre><img vspace="5" hspace="5" src="a_05.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Aproximació dades
+clear, clc, clf;
+
+%% Dades
+x = 0:7;
+y1 = [73.3 75.3 76.2 76.8 78.0 79.0 80.2 81.6];
+y2 = [67.7 69.6 71.1 69.6 68.4 69.0 69.8 70.3];
+plot(x,y1,'REPLACE_WITH_DASH_DASH',x,y2,'-'), title('Esperança de vida')
+legend('Espanya','Belice', 'location', 'best')
+
+%% Espanya
+% *Polinomi interpolador *
+n = length(x);
+p = polyfit(x,y1,n-1);
+coefs = p';
+
+% Gràfic polinomi
+t = 0:0.1:7;
+v = polyval(coefs,t);
+plot(x,y1,'*',t,v), title('Nodes Espanya')
+legend('nodes','polinomi','location','best')
+
+%1970
+% per sortir "fora" es necessari t = -2:0.1:9;
+% En aquest cas 1970
+% v(11);
+% err = 72.0 - v(11);
+% abs(err);
+% 
+% %2007 (2005 es 81)
+% v(81 + 2 + 2);
+% err = 80.9 - v(81 + 2 + 2);
+% abs(err);
+% 
+% %1992 (1990 es 51)
+% v(51 + 4);
+% err = 77.4 - v(51 + 4);
+% abs(err);
+
+%% Belice
+% *Polinomi interpolador *
+n = length(x);
+p = polyfit(x,y2,n-1);
+coefs = p';
+
+% Gràfic polinomi
+t = 0:0.1:7;
+v = polyval(coefs,t);
+plot(x,y2,'*',t,v), title('Nodes Belice')
+legend('nodes','polinomi','location','best')
+
+%1970
+% per sortir "fora" es necessari t = -2:0.1:9;
+% En aquest cas 1970
+% v(11);
+% err = 65.5 - v(11);
+% abs(err);
+% %2007 (2005 es 81)
+% v(81 + 2 + 2);
+% err = 69.5 - v(81 + 2 + 2);
+% abs(err);
+% 
+% %1992 (1990 es 51)
+% v(51 + 4);
+% err = 70.7 - v(51 + 4);
+% abs(err)
+
+%% Resultats junts
+clf,
+t = 0:0.1:7;
+
+% Esp
+n = length(x);
+p1 = polyfit(x,y1,n-1);
+coefs1 = p1';
+v1 = polyval(coefs1,t);
+
+% Belice
+n = length(x);
+p2 = polyfit(x,y2,n-1);
+coefs2 = p2';
+v2 = polyval(coefs2,t);
+
+txt1 = 'Espanya nodes';
+txt2 = 'Belice nodes';
+txt3 = 'Espanya polinomi';
+txt4 = 'Belice polinomi';
+hold all;
+plot(x,y1,'Marker','o','Color','r','LineStyle','none','DisplayName', txt1)
+plot(x,y2,'Marker','o','Color','k','LineStyle','none','DisplayName', txt2)
+plot(t,v1,'Color','b','DisplayName', txt3),
+plot(t,v2,'Color','g','DisplayName', txt4)
+legend('show','location','best')
+##### SOURCE END #####
+--></body></html>
