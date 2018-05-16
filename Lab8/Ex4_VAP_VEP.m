@@ -1,6 +1,4 @@
 %% Valor propi de modul màxim
-%% file:///C:/Users/David/Google%20Drive/UNI/CN/Teoria/Tema3.2-Valors%20singulars,%20propis,%20etc.pdf
-%% pag 9/25
 format long
 A = [1 0 -1; 1 2 1; 2 2 3]
 x0 = [0 0 1]'; % x0 = [1 -1 1]
