@@ -2,8 +2,8 @@
 % figure('position',get(0,'screensize'))
 % axes('position',[0 0 1 1])
 % [x,y] = ginput;
-filename = 'hand.mat';
-save(filename);
+% % filename = 'handClosed.mat';
+% % save(filename);
 
 %% 
 clear, clc, load('handClosed.mat');
@@ -17,7 +17,7 @@ v2 = pchip(s,y,t);
 clf reset
 hold all,
 plot(x,y,'.','DisplayName', 'Points')
-plot(u1,v1,'-','Color','b','DisplayName', 'Spline')
+plot(u1,v1,'-','Color','g','DisplayName', 'Spline')
 %plot(u2,v2,'-','Color','r','DisplayName', 'pchiptx')
 legend('show')
 
@@ -42,30 +42,45 @@ legend('show')
 % s = splinetx(theta,r,t);
 
 %% Calcul area ma
-%% Opcio A -> area del poligon
+%% Opció A -> àrea del poligon
 total = 0;
 for i = 1:length(x)-1
     total = total + x(i)*y(i+1);
     total = total - x(i+1)*y(i);
 end
-areaMaA = total/2
+areaMaA = abs(total/2)
 
 % en una linea: areaMaA = (x'*y([2:n 1]) - x([2:n 1])'*y)/2
 
-%% Opcio B -> Quadratura simple
-h = 1;
-xmin = min(x(:));
-ymin = min(y(:));
-xmax = max(x(:));
-ymax = max(y(:));
-[u,v] = meshgrid(xmin:h:xmax,ymin:h:ymax);
-k = inpolygon(u,v,x,y);
-areaMaB = h^2*nnz(k)
+%% Opció B -> Quadratura simple
+i = 1;
+%for h = 0:0.005:0.5
+h = 0.005;
+    xmin = min(x(:));
+    ymin = min(y(:));
+    xmax = max(x(:));
+    ymax = max(y(:));
+    [u,v] = meshgrid(xmin:h:xmax,ymin:h:ymax);
+    k = inpolygon(u,v,x,y);
+    areaMaB(i) = abs(h^2*nnz(k))
+    i = i + 1;
+%end
 
-%% Opcio C -> Quadratura adaptativa (2D)
+%% Opció C -> Quadratura adaptativa (2D)
 tol = 0.005;
-areaMaC = dblquad(@(u,v)chi(u,v,x,y),xmin,xmax,ymin,ymax,tol)
-k = chi(u,v,x,y)
+areaMaC = abs(dblquad(@(u,v)chi(u,v,x,y),xmin,xmax,ymin,ymax,tol))
+k = chi(u,v,x,y);
 
+%% Comparació 3 mètodes
+hold all
+t = 0:0.005:0.5;
+plot(t, areaMaB,'DisplayName','Mètode B')
+xlabel('Valor h')
+ylabel('Resultat àrea')
+plot(t, areaMaA*ones(size(t)), 'Color', 'r','DisplayName','Mètode A')
+plot(t, areaMaC*ones(size(t)), 'Color', 'g','DisplayName','Mètode C')
+title('Comparació 3 mètodes')
+legend('show','location','best'),
+grid('on')
 
 
