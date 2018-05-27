@@ -4,39 +4,34 @@ clear,clc
 format long
 for i = 1:1
     n = 3;
-    [B, pos] = generate_wilkinson_matrices(n);
-    if (i == 1) 
-        A = B
-    else
-        A = inv(B)
-    end
-    norma2 = norm(A,2); % Com A es simetrica, la norma 2 es igual al radi espectral, es a dir, el maxim dels valors propis de la matriu, que es el que busquem
-    x0 = [1; 1; 1; 1; 1; 1; 1]; 
-    currentX = x0; iterm = 100;
+    A = [1.8 0.8; 0.2 1.2]
+    
+    x0 = [1;1]; 
+    currentX = x0; iterm = 25;
+    nextX = x0;
     iter = 1; 
     tol = 0.0000005;
     error = 1;
-    prevM = 0;
-    taula(iter,:) = [0,error];
+    taula(iter,:) = [0,currentX'];
     while(iter < iterm && error > tol)
+        currentX = nextX;
         currentZ = A*currentX;
         lambdaVAP = norm(currentZ, 'inf'); % mk+1 candidat a valor propi
         nextX = currentZ/lambdaVAP;
+        error = norm(nextX-currentX,'inf');
 %         rayleigh = A*nextX-lambdaVAP*nextX;
 %         error = max(rayleigh);
 %         I = eye(size(A));
-        error = abs(norma2 - lambdaVAP);
-        currentX = nextX;
-        prevM = lambdaVAP;
+%         error = det(A - lambdaVAP*I)
         iter = iter+1;
         if (i == 1) 
-            taula(iter,:) = [lambdaVAP,error];
+            taula(iter,:) = [lambdaVAP,currentX'];
         else
-            taula(iter,:) = [1/lambdaVAP,error];
+            taula(iter,:) = [1/lambdaVAP,currentX'];
         end
         
     end
-    vep = nextX;
+    vep = nextX
     if (i == 1) 
         vap_max = lambdaVAP
         % Rayleigh
@@ -48,7 +43,7 @@ for i = 1:1
 
     
 
-disp(taula);
+%disp(taula);
 iter
-error
+error;
 end
