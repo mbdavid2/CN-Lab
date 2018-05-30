@@ -1,5 +1,5 @@
 %% Aproximació dades
-clear, clc, clf;
+clear, clc;
 
 %% Dades
 x = 0:7;
@@ -9,33 +9,40 @@ plot(x,y1,'--',x,y2,'-'), title('Esperança de vida')
 legend('Espanya','Belice', 'location', 'best')
 
 %% Espanya
-% *Polinomi interpolador *
+% *Useu el polinomi interpolador de grau 7*
 n = length(x);
 p = polyfit(x,y1,n-1);
 coefs = p';
 
+% A = vander(x)
+% coefs = A\y1'
+% u = 7
+% v = polyval(coefs, u)
+
 % Gràfic polinomi
-t = 0:0.1:7;
+% t = 0:0.1:7; %Per grafic
+t = -2:0.1:9; % Pel calcul dels valors
 v = polyval(coefs,t);
 plot(x,y1,'*',t,v), title('Nodes Espanya')
 legend('nodes','polinomi','location','best')
 
+% 
+% %2007 (2005 es 81)
+v(81 + 2 + 2);
+err = 80.9 - v(81 + 2 + 2);
+abs(err);
+% 
+% %1992 (1990 es 51)
+v(51 + 4);
+err = 77.4 - v(51 + 4);
+abs(err);
+
 %1970
 % per sortir "fora" es necessari t = -2:0.1:9;
 % En aquest cas 1970
-% v(11);
-% err = 72.0 - v(11);
-% abs(err);
-% 
-% %2007 (2005 es 81)
-% v(81 + 2 + 2);
-% err = 80.9 - v(81 + 2 + 2);
-% abs(err);
-% 
-% %1992 (1990 es 51)
-% v(51 + 4);
-% err = 77.4 - v(51 + 4);
-% abs(err);
+ v(11);
+err = 72.0 - v(11);
+abs(err);
 
 %% Belice
 % *Polinomi interpolador *

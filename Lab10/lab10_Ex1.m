@@ -15,9 +15,9 @@ u = 3
 v = polyval(coefs, u)
 
 %% *Polinomi interpolador *
-n = length(x);
-p = polyfit(x,y,n-1);
-coefs = p'
+% n = length(x);
+% p = polyfit(x,y,n-1);
+% coefs = p'
 
 %% Gràfic polinomi
 t = 1:0.1:5
