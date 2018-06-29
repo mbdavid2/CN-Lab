@@ -1,0 +1,24 @@
+%% Sistemes lineals amb Matlab
+
+A =[10 -7 0 1; -3 2 6 0; 5 -1 5 0; -1 0 2 -1]
+b =[7;4;6;-3]
+
+%% Solucio
+sol = A\b
+
+%% Factoritzacio lu
+[L,U,P] = lu(A)
+% prmer pas
+% y=L\P*b
+% segon pas
+% x = u\y
+
+%% Factoritzacio choleski
+AA = [10 1 2; 1 10 3; 2 3 10];
+L=chol(AA)
+eig(AA)
+
+%% Factoritzacio Qr
+clc
+A
+[Q,R] = qr(A)
